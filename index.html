@@ -1,0 +1,16 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Will you be my girlfriend?</title><style>
+body{margin:0;font-family:Arial;background:linear-gradient(#ffdde1,#ee9ca7);display:flex;align-items:center;justify-content:center;height:100vh;overflow:hidden}
+.card{text-align:center;background:white;padding:30px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.2);position:relative}
+button{padding:14px 28px;font-size:20px;border:none;border-radius:12px;cursor:pointer;margin:10px}
+#yes{background:#ff4d88;color:#fff;transition:.2s}
+#no{background:#ddd;position:relative}
+.heart{position:fixed;color:#ff4d88;animation:fall 6s linear infinite}
+@keyframes fall{from{transform:translateY(-10vh)}to{transform:translateY(110vh)}}
+</style></head><body><div class="card"><h1>❤️ Will you be my girlfriend? ❤️</h1><button id="yes">Yes 💖</button><button id="no">No 🙈</button><p id="msg"></p></div>
+<script>
+let s=1,c=0,no=document.getElementById('no'),yes=document.getElementById('yes');
+for(let i=0;i<20;i++){let h=document.createElement('div');h.className='heart';h.textContent='❤️';h.style.left=Math.random()*100+'vw';h.style.animationDelay=(Math.random()*6)+'s';document.body.appendChild(h);}
+no.addEventListener('mouseover',move);no.addEventListener('click',move);
+function move(){c++;no.style.position='fixed';no.style.left=Math.random()*(window.innerWidth-80)+'px';no.style.top=Math.random()*(window.innerHeight-40)+'px';s+=0.15;yes.style.transform='scale('+s+')';document.getElementById('msg').textContent=["Hmm...","Are you sure? 🥺","Nice try 😂","The No button is shy!","Just press Yes ❤️"][Math.min(c-1,4)];}
+yes.onclick=()=>{document.body.innerHTML="<div style='display:flex;align-items:center;justify-content:center;height:100vh;font-family:Arial;text-align:center;background:#ffe6f0'><div><h1>🎉 Yay! 🎉</h1><h2>You just made me the happiest person. ❤️</h2><p>Thank you for saying YES.</p></div></div>";}
+</script></body></html>
